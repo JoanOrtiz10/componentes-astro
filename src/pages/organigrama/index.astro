@@ -1,13 +1,40 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from '../../layouts/Layout.astro';
 import { Icon } from 'astro-icon/components';
+
+
 ---
+
 
 <Layout title="Welcome to Astro.">
     este es el inicio 
     <p class="pretty-p font-myfont">hola</p>
-    <Icon name="mdi:advertisements-off"  size="150px" class="text-red-500"/>	
-    <h1 class="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text text-4xl">hello world</h1>
+    <Icon name="mdi:account-badge" size="100px" class="text-green-400" />
+    <div id="btn">
+        pinchame
+
+    </div>
+
+    <ul data-tabs class="flex bg-blue-500">
+        <li><a data-tabby-default href="#harry">Harry Potter</a></li>
+        <li><a href="#hermione">Hermione</a></li>
+        <li><a href="#neville">Neville</a></li>
+    </ul>
+    
+    <div id="harry">asdasdasd</div>
+    <div id="hermione">dfgdfgdfdfg</div>
+    <div id="neville">cbcvbvcbcvb</div>
+
+    <div class="h-20"></div>
+
+    <div class="embla">
+        <div class="embla__container">
+          <div class="embla__slide bg-red-400">Slide 1</div>
+          <div class="embla__slide bg-orange-400">Slide 2</div>
+          <div class="embla__slide bg-green-600">Slide 3</div>
+        </div>
+      </div>
+	
 </Layout>
 <style>
     .pretty-p {
@@ -16,6 +43,37 @@ import { Icon } from 'astro-icon/components';
     
     
     }
+/* npm install @iconify-json/mdi */
 
+.embla {
+    @apply bg-blue-200 max-w-80;
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
     
 </style>
+<script>
+    import EmblaCarousel from 'embla-carousel'
+    import JSConfetti from 'js-confetti'
+    import Tabby from 'tabbyjs'
+    const jsConfetti = new JSConfetti()
+    
+    const divBtn = document.getElementById("btn")
+    
+    divBtn.addEventListener("click", function(event) {
+        console.log("me has pinchado",event.target)
+        jsConfetti.addConfetti()
+    })
+    
+    const tabs = new Tabby('[data-tabs]');
+
+    const emblaNode = document.querySelector('.embla')
+    const options = { loop: false }
+    EmblaCarousel(emblaNode, options)
+</script>
