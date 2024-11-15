@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import { Icon } from 'astro-icon/components';
+import Notificacion from "../components/vue/Notificacion.vue"
 ---
 
 <Layout title=" Conozcàmonos">
     
     Esta es la seccion de quienes somos 
-   
+   <Notificacion client:load/>
 
 </Layout>
